@@ -7,6 +7,7 @@
   </head>
   <body>
     <div id="tool">
+      <script src="./SprLib.js"></script>
       <div id="options">
         <div id="logo" class="option"><> SpriteLib</div>
         <div class="option">File</div>
@@ -14,14 +15,22 @@
         <div class="option">View</div>
       </div>
       <div id="tabs">
-        <div class="tab">😀 Sprites</div>
-        <div class="tab">👫 MetaSprites</div>
-        <div class="tab">📃 Scripts</div>
-        <div class="tab">🎵 Sound</div>
-        <div class="tab">🎮 Play</div>
-        <div class="tab">🐛 Debug</div>
+        <div class="tab" data-tab="Sprites" onclick="changeTab(this.dataset.tab)">😀 Sprites</div>
+        <div class="tab" data-tab="MetaSprites" onclick="changeTab(this.dataset.tab)">👫 MetaSprites</div>
+        <div class="tab" data-tab="Scripts" onclick="changeTab(this.dataset.tab)">📃 Scripts</div>
+        <div class="tab" data-tab="Sound" onclick="changeTab(this.dataset.tab)">🎵 Sound</div>
+        <div class="tab" data-tab="Play" onclick="changeTab(this.dataset.tab)">🎮 Play</div>
+        <div class="tab" data-tab="Debug" onclick="changeTab(this.dataset.tab)">🐛 Debug</div>
       </div>
-      <div class="content" id="Sprites"></div>
+      <div class="content" id="Sprites">
+        Sprites
+        <div id="SprToolbar">tools</div>
+      </div>
+      <div class="content" id="MetaSprites"></div>
+      <div class="content" id="Scripts"></div>
+      <div class="content" id="Sound"></div>
+      <div class="content" id="Play"></div>
+      <div class="content" id="Debug"></div>
     </div>
   </body>
 </html>

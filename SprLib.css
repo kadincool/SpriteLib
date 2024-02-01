@@ -1,3 +1,13 @@
+:root {
+  --bg: #00001f;
+  --ta: #00003f;
+  --it: #00005f;
+  --hl: #00007f;
+  --sl: #0000af;
+  --tx: #7fff3f;
+
+}
+
 body {
   margin: 0;
   overflow: hidden;
@@ -9,14 +19,17 @@ body {
   font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
   font-size: 18px;
-  color: lime;
+  color: var(--tx);
+  /* color: lime; */
+  /* background-color: var(--bg); */
   background-color: black;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
 }
 #options {
-  background-color: darkviolet;
+  background-color: var(--ta);
+  /* background-color: darkviolet; */
   border-radius: 13px;
   display: flex;
   padding: 3px;
@@ -25,37 +38,61 @@ body {
   margin-right: 10px;
   padding: 10px;
   border-radius: 10px;
-  outline: violet solid 3px;
+  background-color: var(--it);
+  outline: var(--hl) solid 3px;
+  /* outline: violet solid 3px; */
   cursor: pointer;
-}
-.option:hover {
-  outline-color: transparent;
-  background-color: violet;
 }
 #logo {
   outline-color: transparent;
+  background-color: var(--ta);
+}
+.option:hover {
+  outline-color: transparent;
+  background-color: var(--hl);
+  /* background-color: violet; */
+}
+#logo:hover {
+  background-color: var(--hl);
 }
 #tabs {
   margin-top: 10px;
-  background-color: darkred;
+  background-color: var(--ta);
+  /* background-color: darkred; */
   border-radius: 13px 13px 0 0;
   padding: 3px;
   display: flex;
-  color: white;
+  color: var(--tx);
+  /* color: white; */
 }
 .tab {
   margin-right: 10px;
   padding: 10px;
   border-radius: 10px 10px 0 0;
-  outline: red solid 3px;
+  background-color: var(--it);
+  outline: var(--hl) solid 3px;
+  /* outline: red solid 3px; */
   cursor: pointer;
 }
 .tab:hover {
-  background-color: red;
+  background-color: var(--hl);
+  /* background-color: red; */
 }
 .content {
-  background-color: darkblue;
+  background-color: var(--bg);
+  /* background-color: darkblue; */
   flex-grow: 1;
   border-radius: 0 0 15px 15px;
   padding: 10px;
+  display: none;
+  position: relative;
+}
+/*sprite*/
+#SprToolbar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-radius: 0 0 15px 15px;
+  background-color: var(--hl);
 }
