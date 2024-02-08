@@ -7,7 +7,8 @@
   </head>
   <body>
     <div id="tool">
-      <script src="./SprLib.js"></script>
+      <script src="tabs/tab.js"></script>
+      <script src="./SprLib.js" type="module"></script>
       <div id="options">
         <div id="logo" class="option"><> SpriteLib</div>
         <div class="option">File</div>
@@ -24,7 +25,10 @@
       </div>
       <div class="content" id="Sprites">
         Sprites
-        <div id="SprToolbar">tools</div>
+        <canvas id="spriteCanvas"></canvas>
+        <div id="SprToolbar">
+          <div class="tool">🪣</div>
+        </div>
       </div>
       <div class="content" id="MetaSprites"></div>
       <div class="content" id="Scripts"></div>

@@ -11,6 +11,7 @@
 body {
   margin: 0;
   overflow: hidden;
+  user-select: none;
 }
 #tool {
   padding: 20px;
@@ -42,9 +43,11 @@ body {
   outline: var(--hl) solid 3px;
   /* outline: violet solid 3px; */
   cursor: pointer;
+  transition: background-color 0.2s, outline 0.2s;
 }
 #logo {
   outline-color: transparent;
+  /* outline-width: 0px; */
   background-color: var(--ta);
 }
 .option:hover {
@@ -73,6 +76,7 @@ body {
   outline: var(--hl) solid 3px;
   /* outline: red solid 3px; */
   cursor: pointer;
+  transition: background-color 0.2s;
 }
 .tab:hover {
   background-color: var(--hl);
@@ -94,5 +98,20 @@ body {
   left: 0;
   width: 100%;
   border-radius: 0 0 15px 15px;
+  background-color: var(--ta);
+  padding: 10px;
+  display:flex;
+}
+.tool {
+  font-size: 25px;
+  padding: 10px;
+  outline: var(--hl) solid 3px;
+  background-color: var(--it);
+  border-radius: 5px;
+  aspect-ratio: 1/1;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+.tool:hover {
   background-color: var(--hl);
 }
