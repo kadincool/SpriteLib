@@ -92,15 +92,23 @@ body {
   position: relative;
 }
 /*sprite*/
+#Sprites {
+  display: flex;
+  padding: 0;
+  flex-direction: row;
+}
+#sprMain {
+  flex: 1;
+}
 #SprToolbar {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  border-radius: 0 0 15px 15px;
+  /* position: absolute;
+  bottom: 0; */
+  /* left: 0; */
+  /* width: 100%; */
+  /* border-radius: 0 0 15px 15px; */
   background-color: var(--ta);
   padding: 10px;
-  display:flex;
+  display: flex;
 }
 .tool {
   font-size: 25px;
@@ -114,4 +122,17 @@ body {
 }
 .tool:hover {
   background-color: var(--hl);
+}
+#spriteList {
+  min-width: 100px;
+  min-height: 100px;
+  background-color: var(--ta);
+  border-radius: 0 0 0 15px;
+}
+#spriteEditor {
+  display: flex;
+}
+#spriteCanvas {
+  /* height: 100px; */
+  flex: 1;
 }
