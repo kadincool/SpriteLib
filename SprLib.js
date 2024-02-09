@@ -5,4 +5,4 @@ document.addEventListener("DOMContentLoaded", (e) => {
   sprites.draw();
 })
 
-//document.addEventListener("resize", (e) => {console.log(e)})
+document.addEventListener("resize", (e) => {console.log(e)})

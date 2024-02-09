@@ -14,10 +14,13 @@ export function makeImage(w,h) {
 export function draw() {
   canvas.width = canvas.clientWidth;
   canvas.height = canvas.clientHeight;
-  can2d.fillRect(0,0,canvas.width,canvas.height);
+  can2d.clearRect(0,0,canvas.width,canvas.height);
+  //can2d.fillRect(0,0,canvas.width,canvas.height);
   if (!sprites[currentSprite]) makeImage(10,10);
   let current = sprites[currentSprite];
   let scale = Math.floor(canvas.height/current.height);
+  can2d.translate(Math.floor((canvas.width-current.width*scale)/2), Math.floor((canvas.height-current.height*scale)/2))
+  //can2d.translate(Math.floor(current.width*scale), Math.floor(current.height*scale))
   for (let i=0; i<current.width*current.height; i++) {
     if (!current.data[i]) current.data[i] = i%3;
     // if (!current.data[i]) current.data[i] = "#ffffff"+(Math.floor(i/(current.width*current.height)*256).toString(16));
