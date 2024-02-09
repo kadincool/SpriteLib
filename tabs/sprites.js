@@ -12,7 +12,6 @@ export function makeImage(w,h) {
 }
 
 export function draw() {
-  console.log("draw");
   canvas.width = canvas.clientWidth;
   canvas.height = canvas.clientHeight;
   can2d.fillRect(0,0,canvas.width,canvas.height);
