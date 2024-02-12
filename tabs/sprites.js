@@ -2,12 +2,20 @@
 export var fill = false;
 export var canvas =  document.getElementById("spriteCanvas");
 export var can2d = canvas.getContext("2d");
+var scale;
+var translate;
 
 export function setPixel(x,y,col) {
-
+  if (!sprites[currentSprite]) makeImage(5,5);
+  let current = sprites[currentSprite];
+  current.data[x + y * current.width] = col;
+  current.data[2] = 0
+  sprites[currentSprite].data = current.data;
+  console.log(...current.data);
 }
 
 export function makeImage(w,h) {
+  // return {data: [], width: w, height: h};
   sprites.push({data: [], width: w, height: h});
 }
 
@@ -16,10 +24,11 @@ export function draw() {
   canvas.height = canvas.clientHeight;
   can2d.clearRect(0,0,canvas.width,canvas.height);
   //can2d.fillRect(0,0,canvas.width,canvas.height);
-  if (!sprites[currentSprite]) makeImage(10,10);
+  if (!sprites[currentSprite]) makeImage(5,5);
   let current = sprites[currentSprite];
-  let scale = Math.floor(canvas.height/current.height);
-  can2d.translate(Math.floor((canvas.width-current.width*scale)/2), Math.floor((canvas.height-current.height*scale)/2))
+  scale = Math.floor(canvas.height/current.height);
+  translate=[Math.floor((canvas.width-current.width*scale)/2), Math.floor((canvas.height-current.height*scale)/2)]
+  can2d.translate(...translate);
   //can2d.translate(Math.floor(current.width*scale), Math.floor(current.height*scale))
   for (let i=0; i<current.width*current.height; i++) {
     if (!current.data[i]) current.data[i] = i%3;
@@ -30,9 +39,15 @@ export function draw() {
   requestAnimationFrame(draw);
 }
 
+canvas.addEventListener("mousedown", (e) => {
+  console.log(Math.floor((e.offsetX-translate[0])/scale), Math.floor((e.offsetY-translate[1])/scale));
+  setPixel(Math.floor((e.offsetX-translate[0])/scale), Math.floor((e.offsetY-translate[1])/scale), 0)
+})
+
 export var sprites = [];
 export var colors = ["#000000", "#7f7f7f", "#ffffff"];
 export var currentSprite = 0;
+export var currentColor = 0;
 
 /*export function initSprites() {
   sprite.canvas = document.getElementById("spriteCanvas");

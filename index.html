@@ -9,6 +9,11 @@
     <div id="tool">
       <script src="tabs/tab.js"></script>
       <script src="./SprLib.js" type="module"></script>
+      <script type="module">
+        function foo() {
+          alert(0);
+        }
+      </script>
       <div id="options">
         <div id="logo" class="option"><> SpriteLib</div>
         <div class="option">File</div>
@@ -29,7 +34,7 @@
         <div id="sprEditor">
           <canvas id="spriteCanvas"></canvas>
           <div id="SprToolbar">
-            <div class="tool">💧</div>
+            <div class="tool" onclick="console.log(foo)">💧</div>
           </div>
         </div>
       </div>
