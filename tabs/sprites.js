@@ -9,9 +9,7 @@ export function setPixel(x,y,col) {
   if (!sprites[currentSprite]) makeImage(5,5);
   let current = sprites[currentSprite];
   current.data[x + y * current.width] = col;
-  current.data[2] = 0
   sprites[currentSprite].data = current.data;
-  console.log(...current.data);
 }
 
 export function makeImage(w,h) {
@@ -31,7 +29,7 @@ export function draw() {
   can2d.translate(...translate);
   //can2d.translate(Math.floor(current.width*scale), Math.floor(current.height*scale))
   for (let i=0; i<current.width*current.height; i++) {
-    if (!current.data[i]) current.data[i] = i%3;
+    if (current.data[i] == undefined) current.data[i] = i%3;
     // if (!current.data[i]) current.data[i] = "#ffffff"+(Math.floor(i/(current.width*current.height)*256).toString(16));
     can2d.fillStyle = colors[current.data[i]];
     can2d.fillRect((i%current.width)*scale, Math.floor(i/current.width)*scale, scale, scale);
@@ -40,9 +38,14 @@ export function draw() {
 }
 
 canvas.addEventListener("mousedown", (e) => {
-  console.log(Math.floor((e.offsetX-translate[0])/scale), Math.floor((e.offsetY-translate[1])/scale));
-  setPixel(Math.floor((e.offsetX-translate[0])/scale), Math.floor((e.offsetY-translate[1])/scale), 0)
+  //console.log(Math.floor((e.offsetX-translate[0])/scale), Math.floor((e.offsetY-translate[1])/scale));
+  let px = Math.floor((e.offsetX-translate[0])/scale);
+  let py = Math.floor((e.offsetY-translate[1])/scale);
+  if (px >= 0 && px < sprites[currentSprite].width && py >= 0 && py < sprites[currentSprite].height)
+  setPixel(px, py, 0)
 })
+
+canvas.addEventListener("mousemove", (e) => {if (e.buttons > 0) setPixel(Math.floor((e.offsetX-translate[0])/scale), Math.floor((e.offsetY-translate[1])/scale), 0)})
 
 export var sprites = [];
 export var colors = ["#000000", "#7f7f7f", "#ffffff"];
