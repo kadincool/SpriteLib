@@ -6,3 +6,4 @@ document.addEventListener("DOMContentLoaded", (e) => {
 })
 
 document.addEventListener("resize", (e) => {console.log(e)})
+window.sprites = sprites;

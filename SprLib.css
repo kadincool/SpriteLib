@@ -86,6 +86,7 @@ body {
   background-color: var(--bg);
   /* background-color: darkblue; */
   flex-grow: 1;
+  min-height: 100px;
   border-radius: 0 0 15px 15px;
   padding: 10px;
   display: none;
@@ -105,10 +106,12 @@ body {
   /* width: 100%; */
   /* border-radius: 0 0 15px 15px; */
   background-color: var(--ta);
-  padding: 10px;
+  /* padding: 10px; */
   display: flex;
 }
 .tool {
+  margin: 10px;
+  margin-right: 5px;
   font-size: 25px;
   padding: 10px;
   outline: var(--hl) solid 3px;
@@ -122,10 +125,16 @@ body {
   background-color: var(--hl);
 }
 #sprList {
-  min-width: 100px;
+  width: 100px;
   min-height: 100px;
-  background-color: var(--ta);
+  background-color: var(--it);
   border-radius: 0 0 0 15px;
+}
+#colorList {
+  width: 100px;
+  min-height: 100px;
+  background-color: var(--it);
+  border-radius: 0 0 15px 0;
 }
 #sprEditor {
   display: flex;
@@ -138,4 +147,14 @@ body {
   /* width: 100px;
   min-height: 100px; */
   flex-grow: 1;
+}
+.color {
+  margin: 15px;
+  aspect-ratio: 2/1;
+  outline: black solid 3px;
+  border-radius: 50px;
+  transition: outline-color 0.2s;
+}
+.color:hover {
+  outline-color: white;
 }

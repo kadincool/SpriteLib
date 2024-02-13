@@ -18,6 +18,8 @@ export function makeImage(w,h) {
 }
 
 export function draw() {
+  // canvas.width = sprites[currentSprite].width;
+  // canvas.height = sprites[currentSprite].height;
   canvas.width = canvas.clientWidth;
   canvas.height = canvas.clientHeight;
   can2d.clearRect(0,0,canvas.width,canvas.height);
