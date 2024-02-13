@@ -17,6 +17,10 @@ export function makeImage(w,h) {
   sprites.push({data: [], width: w, height: h});
 }
 
+export function setColor(col) {
+  
+}
+
 export function draw() {
   // canvas.width = sprites[currentSprite].width;
   // canvas.height = sprites[currentSprite].height;
@@ -31,7 +35,7 @@ export function draw() {
   can2d.translate(...translate);
   //can2d.translate(Math.floor(current.width*scale), Math.floor(current.height*scale))
   for (let i=0; i<current.width*current.height; i++) {
-    if (current.data[i] == undefined) current.data[i] = i%3;
+    if (current.data[i] == undefined) current.data[i] = 0;
     // if (!current.data[i]) current.data[i] = "#ffffff"+(Math.floor(i/(current.width*current.height)*256).toString(16));
     can2d.fillStyle = colors[current.data[i]];
     can2d.fillRect((i%current.width)*scale, Math.floor(i/current.width)*scale, scale, scale);
@@ -50,7 +54,7 @@ canvas.addEventListener("mousedown", (e) => {
 canvas.addEventListener("mousemove", (e) => {if (e.buttons > 0) setPixel(Math.floor((e.offsetX-translate[0])/scale), Math.floor((e.offsetY-translate[1])/scale), 0)})
 
 export var sprites = [];
-export var colors = ["#000000", "#7f7f7f", "#ffffff"];
+export var colors = [];
 export var currentSprite = 0;
 export var currentColor = 0;
 

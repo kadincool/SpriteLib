@@ -111,7 +111,7 @@ body {
 }
 .tool {
   margin: 10px;
-  margin-right: 5px;
+  margin-right: 3px;
   font-size: 25px;
   padding: 10px;
   outline: var(--hl) solid 3px;
@@ -154,6 +154,8 @@ body {
   outline: black solid 3px;
   border-radius: 50px;
   transition: outline-color 0.2s;
+  margin: 10px;
+  margin-bottom: 3px;
 }
 .color:hover {
   outline-color: white;
