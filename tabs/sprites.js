@@ -22,8 +22,8 @@ export function setColor(col) {
 }
 
 export function draw() {
-  // canvas.width = sprites[currentSprite].width;
-  // canvas.height = sprites[currentSprite].height;
+  canvas.width = undefined;
+  canvas.height = undefined; //ensure that the canvas doesnt overflow the div
   canvas.width = canvas.clientWidth;
   canvas.height = canvas.clientHeight;
   can2d.clearRect(0,0,canvas.width,canvas.height);

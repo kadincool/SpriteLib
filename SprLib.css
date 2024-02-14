@@ -160,3 +160,7 @@ body {
 .color:hover {
   outline-color: white;
 }
+#add {
+  text-align: center;
+  justify-content: center;
+}
