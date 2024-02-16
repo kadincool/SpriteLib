@@ -135,6 +135,10 @@ body {
   min-height: 100px;
   background-color: var(--it);
   border-radius: 0 0 15px 0;
+  overflow-y: scroll;
+}
+#colorList::-webkit-scrollbar {
+  display: none;
 }
 #sprEditor {
   display: flex;

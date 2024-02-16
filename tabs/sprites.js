@@ -18,7 +18,41 @@ export function makeImage(w,h) {
 }
 
 export function setColor(col) {
-  
+  currentColor = col;
+  updateColors();
+}
+
+export function addColor(col) {
+  colors.push(col);
+  let made = document.createElement("div");
+  made.style = "background-color: "+col+";";
+  made.className = "color";
+  document.getElementById("colorList").appendChild(made);
+  updateColors();
+}
+
+export function updateColors() {
+  const list = document.getElementById("colorList");
+  /*while (list.hasChildNodes) {
+    list.removeChild(list.firstChild);
+  }*/
+  list.innerHTML = "";
+  for (let i = 0; i < colors.length; i++) {
+    let made = document.createElement("div");
+    let style = "background-color: "+colors[i]+"; "
+    if (currentColor == i) {style += "outline-color: white;"}
+    made.style = style;
+    made.onclick = function() {setColor(this.dataset.index)};
+    made.className = "color";
+    made.dataset.index = i;
+    document.getElementById("colorList").appendChild(made);
+  }
+  let made = document.createElement("div");
+  made.className = "color";
+  made.id = "add";
+  made.innerHTML = "+";
+  made.onclick = function() {addColor(prompt("Choose a color (eg. #rgb, #rgba, #rrggbb, #rrggbbaa, <css color>)"))}
+  document.getElementById("colorList").appendChild(made);
 }
 
 export function draw() {
@@ -48,10 +82,10 @@ canvas.addEventListener("mousedown", (e) => {
   let px = Math.floor((e.offsetX-translate[0])/scale);
   let py = Math.floor((e.offsetY-translate[1])/scale);
   if (px >= 0 && px < sprites[currentSprite].width && py >= 0 && py < sprites[currentSprite].height)
-  setPixel(px, py, 0)
+  setPixel(px, py, currentColor);
 })
 
-canvas.addEventListener("mousemove", (e) => {if (e.buttons > 0) setPixel(Math.floor((e.offsetX-translate[0])/scale), Math.floor((e.offsetY-translate[1])/scale), 0)})
+canvas.addEventListener("mousemove", (e) => {if (e.buttons > 0) setPixel(Math.floor((e.offsetX-translate[0])/scale), Math.floor((e.offsetY-translate[1])/scale), currentColor)})
 
 export var sprites = [];
 export var colors = [];
