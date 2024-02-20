@@ -168,3 +168,20 @@ body {
   text-align: center;
   justify-content: center;
 }
+#contextMenu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--ta);
+  border-radius: 10px;
+}
+.contextButton {
+  padding: 10px;
+  border-radius: 10px;
+  margin: 5px;
+  transition: background-color 0.2s;
+}
+.contextButton:hover {
+  background-color: var(--hl);
+}

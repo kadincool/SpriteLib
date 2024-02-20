@@ -45,6 +45,7 @@ export function updateColors() {
     made.onclick = function() {setColor(this.dataset.index)};
     made.className = "color";
     made.dataset.index = i;
+    made.addEventListener("contextmenu", (e) => {e.preventDefault(); colorContext(e)});
     document.getElementById("colorList").appendChild(made);
   }
   let made = document.createElement("div");
@@ -54,6 +55,21 @@ export function updateColors() {
   made.onclick = function() {addColor(prompt("Choose a color (eg. #rgb, #rgba, #rrggbb, #rrggbbaa, <css color>)"))}
   document.getElementById("colorList").appendChild(made);
 }
+
+export function colorContext(e) {
+  const context = document.getElementById("contextMenu");
+  context.style.display = "flex";
+  // context.style.display = "block";
+  context.style.left = e.pageX - context.clientWidth - 4 + "px";
+  context.style.top = e.pageY + 4 + "px";
+}
+
+document.addEventListener("click", (e) => {
+  const context = document.getElementById("contextMenu");
+  if (!e.composedPath().includes(context)) {
+    context.style.display = "none";
+  }
+})
 
 export function draw() {
   canvas.width = undefined;
@@ -91,6 +107,8 @@ export var sprites = [];
 export var colors = [];
 export var currentSprite = 0;
 export var currentColor = 0;
+
+addColor("blue");
 
 /*export function initSprites() {
   sprite.canvas = document.getElementById("spriteCanvas");
