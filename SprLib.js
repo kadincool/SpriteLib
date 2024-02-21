@@ -1,4 +1,5 @@
 import * as sprites from "./tabs/sprites.js";
+window.sprites = sprites;
 
 document.addEventListener("DOMContentLoaded", (e) => {
   changeTab("Sprites");

@@ -4,6 +4,7 @@ export var canvas =  document.getElementById("spriteCanvas");
 export var can2d = canvas.getContext("2d");
 var scale;
 var translate;
+var contextColor = 0;
 
 export function setPixel(x,y,col) {
   if (!sprites[currentSprite]) makeImage(5,5);
@@ -24,11 +25,36 @@ export function setColor(col) {
 
 export function addColor(col) {
   colors.push(col);
-  let made = document.createElement("div");
-  made.style = "background-color: "+col+";";
-  made.className = "color";
-  document.getElementById("colorList").appendChild(made);
+  // let made = document.createElement("div");
+  // made.style = "background-color: "+col+";";
+  // made.className = "color";
+  // document.getElementById("colorList").appendChild(made);
   updateColors();
+}
+
+export function removeColor() {
+  if (colors[contextColor]) {
+    const context = document.getElementById("colorContext");
+    colors.splice(contextColor, 1);
+    let instances = [];
+    let larger = [];
+    for (let i = 0; i < sprites[currentSprite].data.length; i++) {
+      if (sprites[currentSprite].data[i] == contextColor) instances.push(i);
+      else if (sprites[currentSprite].data[i] > contextColor) larger.push(i);
+    }
+    for (let i = 0; i < instances.length; i++) {
+      sprites[currentSprite].data[instances[i]] = 0;
+    }
+    for (let i = 0; i < larger.length; i++) {
+      sprites[currentSprite].data[larger[i]] -= 1;
+    }
+    // while (sprites[currentSprite].data.findIndex((e) => contextColor == e) != -1) {
+    //   sprites[currentSprite].data[sprites[currentSprite].data.findIndex((e) => contextColor == e)] = 0;
+    // }
+    
+    updateColors();
+    context.style.display = "none";
+  }
 }
 
 export function updateColors() {
@@ -42,7 +68,7 @@ export function updateColors() {
     let style = "background-color: "+colors[i]+"; "
     if (currentColor == i) {style += "outline-color: white;"}
     made.style = style;
-    made.onclick = function() {setColor(this.dataset.index)};
+    made.onclick = function() {setColor(Number(this.dataset.index))};
     made.className = "color";
     made.dataset.index = i;
     made.addEventListener("contextmenu", (e) => {e.preventDefault(); colorContext(e)});
@@ -57,7 +83,9 @@ export function updateColors() {
 }
 
 export function colorContext(e) {
-  const context = document.getElementById("contextMenu");
+  console.log(e.composedPath()[0].dataset.index)
+  contextColor = Number(e.composedPath()[0].dataset.index)
+  const context = document.getElementById("colorContext");
   context.style.display = "flex";
   // context.style.display = "block";
   context.style.left = e.pageX - context.clientWidth - 4 + "px";
@@ -65,7 +93,7 @@ export function colorContext(e) {
 }
 
 document.addEventListener("click", (e) => {
-  const context = document.getElementById("contextMenu");
+  const context = document.getElementById("colorContext");
   if (!e.composedPath().includes(context)) {
     context.style.display = "none";
   }
@@ -108,7 +136,7 @@ export var colors = [];
 export var currentSprite = 0;
 export var currentColor = 0;
 
-addColor("blue");
+addColor("white");
 
 /*export function initSprites() {
   sprite.canvas = document.getElementById("spriteCanvas");
