@@ -52,6 +52,6 @@ function option(e) {
   menu.style.display = "block"
 }
 
-window.option = option;
+window.opt = option;
 
 window.changeTab = changeTab;
