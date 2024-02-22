@@ -45,6 +45,21 @@ body {
   cursor: pointer;
   transition: background-color 0.2s, outline 0.2s;
 }
+.dropdown {
+  position: absolute;
+  padding: 10px;
+  border-radius: 10px;
+  /* transform: translateY(10px); */
+  background-color: var(--it);
+  outline: var(--hl) solid 3px;
+  /* height: 1%; */
+  transition: height 0.5s;
+  overflow: hidden;
+  display: none;
+}
+/* .dropdown:hover {
+  height: fit-content;
+} */
 #logo {
   outline-color: transparent;
   /* outline-width: 0px; */

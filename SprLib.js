@@ -31,4 +31,27 @@ function changeTab(tab) {
   }
 }
 
+document.addEventListener("click", (e) => {
+  const context = document.getElementById("colorContext");
+  if (!e.composedPath().includes(context)) {
+    context.style.display = "none";
+  }
+  const dropdowns = document.getElementsByClassName("dropdown");
+  for (let i = 0; i < dropdowns.length; i++) {
+    console.log(e.composedPath()[0].dataset.option, dropdowns[i].id, e.composedPath()[0].dataset.option == dropdowns[i].id)
+    if (!e.composedPath().includes(dropdowns[i]) && !e.composedPath()[0].dataset.option == dropdowns[i].id) { //!e.composedPath().includes(dropdowns[i]) && 
+      dropdowns[i].style.display = "none";
+    }
+  }
+})
+
+function option(e) {
+  let menu = document.getElementById("view");
+  let buttonPos = e.target.getBoundingClientRect()
+  console.log(menu);
+  menu.style.display = "block"
+}
+
+window.option = option;
+
 window.changeTab = changeTab;

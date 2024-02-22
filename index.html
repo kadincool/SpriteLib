@@ -15,9 +15,21 @@
       </script>
       <div id="options">
         <div id="logo" class="option"><> SpriteLib</div>
-        <div class="option">File</div>
-        <div class="option">Edit</div>
-        <div class="option">View</div>
+        <div class="option" data-option="file">File</div>
+        <div class="dropdown" id="file">
+          <div class="dropdownItem">files</div>
+          <div class="dropdownItem">filing</div>
+        </div>
+        <div class="option" data-option="edit">Edit</div>
+        <div class="dropdown" id="edit">
+          <div class="dropdownItem">edits</div>
+          <div class="dropdownItem">editing</div>
+        </div>
+        <div class="option" data-option="view" onclick="option(event)">View</div>
+        <div class="dropdown" id="view">
+          <div class="dropdownItem">views</div>
+          <div class="dropdownItem">viewing</div>
+        </div>
       </div>
       <div id="tabs">
         <div class="tab" data-tab="Sprites" onclick="changeTab(this.dataset.tab)">😀 Sprites</div>

@@ -95,13 +95,6 @@ export function colorContext(e) {
   context.style.top = e.pageY + 4 + "px";
 }
 
-document.addEventListener("click", (e) => {
-  const context = document.getElementById("colorContext");
-  if (!e.composedPath().includes(context)) {
-    context.style.display = "none";
-  }
-})
-
 export function draw() {
   canvas.width = undefined;
   canvas.height = undefined; //ensure that the canvas doesnt overflow the div
