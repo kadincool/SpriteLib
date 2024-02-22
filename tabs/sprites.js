@@ -1,10 +1,9 @@
-
 export var fill = false;
 export var canvas =  document.getElementById("spriteCanvas");
 export var can2d = canvas.getContext("2d");
 var scale;
 var translate;
-var contextColor = 0;
+export var contextColor = 0;
 
 export function setPixel(x,y,col) {
   if (!sprites[currentSprite]) makeImage(5,5);
@@ -29,18 +28,19 @@ export function addColor(col) {
   // made.style = "background-color: "+col+";";
   // made.className = "color";
   // document.getElementById("colorList").appendChild(made);
+  currentColor = colors.lenght - 1;
   updateColors();
 }
 
-export function removeColor() {
-  if (colors[contextColor]) {
+export function removeColor(remove) {
+  if (colors[remove]) {
     const context = document.getElementById("colorContext");
-    colors.splice(contextColor, 1);
+    colors.splice(remove, 1);
     let instances = [];
     let larger = [];
     for (let i = 0; i < sprites[currentSprite].data.length; i++) {
-      if (sprites[currentSprite].data[i] == contextColor) instances.push(i);
-      else if (sprites[currentSprite].data[i] > contextColor) larger.push(i);
+      if (sprites[currentSprite].data[i] == remove) instances.push(i);
+      else if (sprites[currentSprite].data[i] > remove) larger.push(i);
     }
     for (let i = 0; i < instances.length; i++) {
       sprites[currentSprite].data[instances[i]] = 0;
@@ -48,6 +48,9 @@ export function removeColor() {
     for (let i = 0; i < larger.length; i++) {
       sprites[currentSprite].data[larger[i]] -= 1;
     }
+    if (currentColor == remove) {currentColor = 0}
+    else if (currentColor > remove) {currentColor -= 1}
+
     // while (sprites[currentSprite].data.findIndex((e) => contextColor == e) != -1) {
     //   sprites[currentSprite].data[sprites[currentSprite].data.findIndex((e) => contextColor == e)] = 0;
     // }
@@ -83,8 +86,8 @@ export function updateColors() {
 }
 
 export function colorContext(e) {
-  console.log(e.composedPath()[0].dataset.index)
   contextColor = Number(e.composedPath()[0].dataset.index)
+
   const context = document.getElementById("colorContext");
   context.style.display = "flex";
   // context.style.display = "block";
@@ -129,7 +132,14 @@ canvas.addEventListener("mousedown", (e) => {
   setPixel(px, py, currentColor);
 })
 
-canvas.addEventListener("mousemove", (e) => {if (e.buttons > 0) setPixel(Math.floor((e.offsetX-translate[0])/scale), Math.floor((e.offsetY-translate[1])/scale), currentColor)})
+canvas.addEventListener("mousemove", (e) => {
+  let px = Math.floor((e.offsetX-translate[0])/scale);
+  let py = Math.floor((e.offsetY-translate[1])/scale);
+  if (px >= 0 && px < sprites[currentSprite].width && py >= 0 && py < sprites[currentSprite].height && e.buttons > 0) {
+    setPixel(px, py, currentColor);
+  }
+  //if (e.buttons > 0) setPixel(Math.floor((e.offsetX-translate[0])/scale), Math.floor((e.offsetY-translate[1])/scale), currentColor)
+})
 
 export var sprites = [];
 export var colors = [];
