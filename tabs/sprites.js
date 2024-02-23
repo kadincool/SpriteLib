@@ -6,7 +6,7 @@ var translate;
 export var contextColor = 0;
 
 export function setPixel(x,y,col) {
-  if (!sprites[currentSprite]) makeImage(5,5);
+  if (!sprites[currentSprite]) makeImage(16, 16);
   let current = sprites[currentSprite];
   current.data[x + y * current.width] = col;
   sprites[currentSprite].data = current.data;
@@ -102,7 +102,7 @@ export function draw() {
   canvas.height = canvas.clientHeight;
   can2d.clearRect(0,0,canvas.width,canvas.height);
   //can2d.fillRect(0,0,canvas.width,canvas.height);
-  if (!sprites[currentSprite]) makeImage(5,5);
+  if (!sprites[currentSprite]) makeImage(16, 16);
   let current = sprites[currentSprite];
   scale = Math.floor(canvas.height/current.height);
   translate=[Math.floor((canvas.width-current.width*scale)/2), Math.floor((canvas.height-current.height*scale)/2)]
