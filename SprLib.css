@@ -47,15 +47,26 @@ body {
 }
 .dropdown {
   position: absolute;
-  padding: 10px;
+  /* padding: 10px; */
   border-radius: 10px;
-  /* transform: translateY(10px); */
+  transform: translateY(10px);
   background-color: var(--it);
   outline: var(--hl) solid 3px;
   /* height: 1%; */
   transition: height 0.5s;
   overflow: hidden;
   display: none;
+  z-index: 10;
+}
+.dropdownItem {
+  border-radius: 10px;
+  padding: 5px;
+  margin: 5px;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+.dropdownItem:hover {
+  background-color: var(--hl);
 }
 /* .dropdown:hover {
   height: fit-content;
@@ -175,6 +186,7 @@ body {
   transition: outline-color 0.2s;
   margin: 10px;
   margin-bottom: 3px;
+  cursor: pointer;
 }
 .color:hover {
   outline-color: white;

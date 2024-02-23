@@ -28,7 +28,7 @@ export function addColor(col) {
   // made.style = "background-color: "+col+";";
   // made.className = "color";
   // document.getElementById("colorList").appendChild(made);
-  currentColor = colors.lenght - 1;
+  currentColor = colors.length - 1;
   updateColors();
 }
 

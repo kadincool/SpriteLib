@@ -38,20 +38,20 @@ document.addEventListener("click", (e) => {
   }
   const dropdowns = document.getElementsByClassName("dropdown");
   for (let i = 0; i < dropdowns.length; i++) {
-    console.log(e.composedPath()[0].dataset.option, dropdowns[i].id, e.composedPath()[0].dataset.option == dropdowns[i].id)
-    if (!e.composedPath().includes(dropdowns[i]) && !e.composedPath()[0].dataset.option == dropdowns[i].id) { //!e.composedPath().includes(dropdowns[i]) && 
+    if (!e.composedPath().includes(dropdowns[i]) && e.composedPath()[0].dataset.option != dropdowns[i].id) { //!e.composedPath().includes(dropdowns[i]) && 
       dropdowns[i].style.display = "none";
     }
   }
 })
 
-function option(e) {
-  let menu = document.getElementById("view");
-  let buttonPos = e.target.getBoundingClientRect()
-  console.log(menu);
-  menu.style.display = "block"
+function optionMenu(e) {
+  let menu = document.getElementById(e.target.dataset.option);
+  let buttonPos = e.target.getBoundingClientRect();
+  menu.style.display = "block";
+  menu.style.left = buttonPos.x + "px";
+  menu.style.top = (buttonPos.y + buttonPos.height) + "px";
 }
 
-window.opt = option;
+window.optionMenu = optionMenu;
 
 window.changeTab = changeTab;
