@@ -5,6 +5,18 @@ var scale;
 var translate;
 export var contextColor = 0;
 
+export function setFill(event) {
+  console.log(event.target);
+  fill = !fill;
+  if (fill) {
+    event.target.style.backgroundColor = "var(--sl)";
+    event.target.style.outlineColor = "var(--sl)";
+  } else {
+    event.target.style.backgroundColor = "";
+    event.target.style.outlineColor = "";
+  }
+}
+
 export function setPixel(x,y,col) {
   if (!sprites[currentSprite]) makeImage(16, 16);
   let current = sprites[currentSprite];
@@ -27,7 +39,7 @@ export function addColor(col) {
   // let made = document.createElement("div");
   // made.style = "background-color: "+col+";";
   // made.className = "color";
-  // document.getElementById("colorList").appendChild(made);
+  // document.getElementById("sprColorList").appendChild(made);
   currentColor = colors.length - 1;
   updateColors();
 }
@@ -61,7 +73,7 @@ export function removeColor(remove) {
 }
 
 export function updateColors() {
-  const list = document.getElementById("colorList");
+  const list = document.getElementById("sprColorList");
   /*while (list.hasChildNodes) {
     list.removeChild(list.firstChild);
   }*/
@@ -72,17 +84,17 @@ export function updateColors() {
     if (currentColor == i) {style += "outline-color: white;"}
     made.style = style;
     made.onclick = function() {setColor(Number(this.dataset.index))};
-    made.className = "color";
+    made.className = "SprColor";
     made.dataset.index = i;
     made.addEventListener("contextmenu", (e) => {e.preventDefault(); colorContext(e)});
-    document.getElementById("colorList").appendChild(made);
+    document.getElementById("sprColorList").appendChild(made);
   }
   let made = document.createElement("div");
-  made.className = "color";
-  made.id = "add";
+  made.className = "SprColor";
+  made.id = "addColor";
   made.innerHTML = "+";
   made.onclick = function() {addColor(prompt("Choose a color (eg. #rgb, #rgba, #rrggbb, #rrggbbaa, <css color>)"))}
-  document.getElementById("colorList").appendChild(made);
+  document.getElementById("sprColorList").appendChild(made);
 }
 
 export function colorContext(e) {
@@ -140,6 +152,7 @@ export var currentSprite = 0;
 export var currentColor = 0;
 
 addColor("white");
+addColor("black");
 
 /*export function initSprites() {
   sprite.canvas = document.getElementById("spriteCanvas");

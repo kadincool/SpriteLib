@@ -135,7 +135,7 @@ body {
   /* padding: 10px; */
   display: flex;
 }
-.tool {
+.sprTool {
   margin: 10px;
   margin-right: 3px;
   font-size: 25px;
@@ -144,10 +144,10 @@ body {
   background-color: var(--it);
   border-radius: 5px;
   aspect-ratio: 1/1;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, outline-color 0.2s;
   cursor: pointer;
 }
-.tool:hover {
+.sprTool:hover {
   background-color: var(--hl);
 }
 #sprList {
@@ -156,14 +156,14 @@ body {
   background-color: var(--it);
   border-radius: 0 0 0 15px;
 }
-#colorList {
+#sprColorList {
   width: 100px;
   min-height: 100px;
   background-color: var(--it);
   border-radius: 0 0 15px 0;
   overflow-y: scroll;
 }
-#colorList::-webkit-scrollbar {
+#sprColorList::-webkit-scrollbar {
   display: none;
 }
 #sprEditor {
@@ -178,7 +178,7 @@ body {
   min-height: 100px; */
   flex-grow: 1;
 }
-.color {
+.SprColor {
   margin: 15px;
   aspect-ratio: 2/1;
   outline: black solid 3px;
@@ -188,10 +188,10 @@ body {
   margin-bottom: 3px;
   cursor: pointer;
 }
-.color:hover {
+.SprColor:hover {
   outline-color: white;
 }
-#add {
+#addColor {
   text-align: center;
   justify-content: center;
 }
@@ -211,4 +211,10 @@ body {
 }
 .contextButton:hover {
   background-color: var(--hl);
+}
+/*scripts*/
+#Scripts {
+  padding: 0px;
+  display: block;
+  /* overflow: hidden; */
 }

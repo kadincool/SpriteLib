@@ -45,11 +45,11 @@
         <div id="sprEditor">
           <canvas id="spriteCanvas"></canvas>
           <div id="SprToolbar">
-            <div class="tool" onclick="console.log('foo')">💧</div>
-            <div class="tool" onclick="console.log('bar')">📏</div>
+            <div class="sprTool" onclick="sprites.setFill(event)">💧</div>
+            <div class="sprTool" onclick="console.log('bar')">📏</div>
           </div>
         </div>
-        <div id="colorList"></div>
+        <div id="sprColorList"></div>
         <div id="colorContext" class="contextMenu">
           <div class="contextButton">📄</div>
           <div class="contextButton" onclick="sprites.removeColor(sprites.contextColor)">🗑️</div>
@@ -57,7 +57,9 @@
       </div>
       <div class="content" id="MetaSprites"></div>
       <div class="content" id="Scripts">
-        Scripts
+        <!-- <textarea>console.log("hello world");</textarea> -->
+        <div  contenteditable="plaintext-only" spellcheck="false">//JS code execution isn't a security vulnerability if there's nothing to secure ;D
+console.log("Hello World");</div>
       </div>
       <div class="content" id="Sound"></div>
       <div class="content" id="Play"></div>
