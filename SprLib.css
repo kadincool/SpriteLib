@@ -218,3 +218,11 @@ body {
   display: block;
   /* overflow: hidden; */
 }
+#codeToolbar {
+  background-color: var(--ta);
+}
+.codeButton {
+  padding: 10px;
+  margin: 10px;
+  outline: var(--it) solid 3px;
+}
