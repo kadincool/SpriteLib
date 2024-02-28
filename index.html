@@ -17,8 +17,9 @@
         <div id="logo" class="option"><> SpriteLib</div>
         <div class="option" data-option="file" onclick="optionMenu(event)">File</div>
         <div class="dropdown" id="file">
-          <div class="dropdownItem">files</div>
-          <div class="dropdownItem">filing</div>
+          <div class="dropdownItem">New</div>
+          <div class="dropdownItem">Save</div>
+          <div class="dropdownItem">Load</div>
         </div>
         <div class="option" data-option="edit" onclick="optionMenu(event)">Edit</div>
         <div class="dropdown" id="edit">
@@ -53,18 +54,41 @@
         <div id="colorContext" class="contextMenu">
           <div class="contextButton">📄</div>
           <div class="contextButton" onclick="sprites.removeColor(sprites.contextColor)">🗑️</div>
+          <div class="contextButton">🎨</div>
+          <div class="contextButton">🔼</div>
+          <div class="contextButton">🔽</div>
         </div>
       </div>
       <div class="content" id="MetaSprites"></div>
       <div class="content" id="Scripts">
         <!-- <textarea>console.log("hello world");</textarea> -->
-        <div id="codeToolbar"><div class="codeButton">▶️</div></div>
-        <div contenteditable="plaintext-only" spellcheck="false">//JS code execution isn't a security vulnerability if there's nothing to secure ;D
-console.log("Hello World");</div>
+        <div id="codeToolbar">
+          <div class="codeButton">💾</div>
+          <div class="codeButton" onclick="runProgram()">▶️</div>
+        </div>
+        <div id="srcCode" contenteditable="plaintext-only" spellcheck="false">//JS code execution isn't a security vulnerability if there's nothing to secure ;D
+console.log("Hello World");
+//resize canvas
+canvas.width = undefined;
+canvas.height = undefined;
+canvas.width = canvas.clientWidth;
+canvas.height = canvas.clientHeight;
+//set red square
+ctx.fillStyle = "red";
+ctx.fillRect(0, 0, 100, 100);</div>
       </div>
       <div class="content" id="Sound"></div>
-      <div class="content" id="Play"></div>
+      <div class="content" id="Play">
+        <!-- <iframe src="./index.html"></iframe> -->
+        <canvas id="runCanvas"></canvas>
+        <script src="./tabs/play.js"></script>
+      </div>
       <div class="content" id="Debug"></div>
     </div>
   </body>
 </html>
+<!-- //JS code execution isn't a security vulnerability if there's nothing to secure ;D
+console.log("Hello World");
+alert(null);
+fjdkshfkjdshkfjhsd
+console.log("Hi"); -->

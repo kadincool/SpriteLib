@@ -214,15 +214,43 @@ body {
 }
 /*scripts*/
 #Scripts {
-  padding: 0px;
+  padding: 0;
   display: block;
   /* overflow: hidden; */
 }
 #codeToolbar {
-  background-color: var(--ta);
+  background-color: var(--it);
+  display: flex;
+  justify-content: flex-end;
 }
 .codeButton {
   padding: 10px;
   margin: 10px;
-  outline: var(--it) solid 3px;
+  outline: var(--hl) solid 3px;
+  background-color: var(--ta);
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  transition: background-color 0.2s, outline-color 0.2s;
+}
+.codeButton:hover {
+  background-color: var(--hl);
+}
+/*play*/
+#Play {
+  display: block;
+  overflow: hidden;
+  padding: 0;
+}
+#Play iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+#Play canvas {
+  width: 100%;
+  height: 100%;
 }
