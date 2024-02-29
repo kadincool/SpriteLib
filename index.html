@@ -75,7 +75,14 @@ canvas.width = canvas.clientWidth;
 canvas.height = canvas.clientHeight;
 //set red square
 ctx.fillStyle = "red";
-ctx.fillRect(0, 0, 100, 100);</div>
+ctx.fillRect(0, 0, 100, 100);
+
+function frame() {
+  console.log(Date.now());
+  requestAnimationFrame(frame())
+}
+frame()
+</div>
       </div>
       <div class="content" id="Sound"></div>
       <div class="content" id="Play">
