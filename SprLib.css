@@ -76,14 +76,14 @@ body {
   /* outline-width: 0px; */
   background-color: var(--ta);
 }
-.option:hover {
+.option:hover, .option:focus {
   outline-color: transparent;
   background-color: var(--hl);
   /* background-color: violet; */
 }
-#logo:hover {
+/* #logo:hover {
   background-color: var(--hl);
-}
+} */
 #tabs {
   margin-top: 10px;
   background-color: var(--ta);
@@ -104,7 +104,7 @@ body {
   cursor: pointer;
   transition: background-color 0.2s;
 }
-.tab:hover {
+.tab:hover, .tab:focus {
   background-color: var(--hl);
   /* background-color: red; */
 }
@@ -147,7 +147,7 @@ body {
   transition: background-color 0.2s, outline-color 0.2s;
   cursor: pointer;
 }
-.sprTool:hover {
+.sprTool:hover, .sprTool:focus {
   background-color: var(--hl);
 }
 #sprList {
@@ -188,7 +188,7 @@ body {
   margin-bottom: 3px;
   cursor: pointer;
 }
-.SprColor:hover {
+.SprColor:hover, .SprColor:focus {
   outline-color: white;
 }
 #addColor {
@@ -209,7 +209,7 @@ body {
   margin: 5px;
   transition: background-color 0.2s;
 }
-.contextButton:hover {
+.contextButton:hover, .contextButton:focus {
   background-color: var(--hl);
 }
 /*scripts*/
@@ -236,7 +236,7 @@ body {
   border-radius: 10px;
   transition: background-color 0.2s, outline-color 0.2s;
 }
-.codeButton:hover {
+.codeButton:hover, .codeButton:focus {
   background-color: var(--hl);
 }
 /*play*/

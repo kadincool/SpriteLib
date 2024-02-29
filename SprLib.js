@@ -5,7 +5,18 @@ document.addEventListener("DOMContentLoaded", (e) => {
   changeTab("Sprites");
   sprites.updateColors();
   sprites.draw();
+  setup();
 })
+
+function setup() {
+  const tabable = ["option", "tab", "sprTool", "contextButton", "codeButton"];
+  for (let i = 0; i < tabable.length; i++) {
+    let options = document.getElementsByClassName(tabable[i]);
+    for (let j = 0; j < options.length; j++) {
+      options[j].addEventListener("keyup", (e) => {if (e.code == "Enter") {options[j].click()}})
+    }
+  }
+}
 
 document.addEventListener("resize", (e) => {console.log(e)})
 window.sprites = sprites;
