@@ -65,4 +65,20 @@ function optionMenu(e) {
 
 window.optionMenu = optionMenu;
 
+function save() {
+  //make a blob with the data
+  let data = new Blob([JSON.stringify({sprites: sprites.sprites, colors: sprites.colors, code: document.getElementById("srcCode").innerText})], {type: "application/json"});
+  console.log(URL.createObjectURL(data));
+  //make download anchor
+  let download = document.createElement("a");
+  download.href = URL.createObjectURL(data);
+  download.download = "save.slb";
+  //make the download button temporarily in the DOM then clicv it
+  document.body.appendChild(download);
+  download.click();
+  document.body.removeChild(download);
+}
+
+window.save = save;
+
 window.changeTab = changeTab;
