@@ -49,24 +49,22 @@ export function removeColor(remove) {
   if (colors[remove]) {
     const context = document.getElementById("colorContext");
     colors.splice(remove, 1);
-    let instances = [];
-    let larger = [];
-    for (let i = 0; i < sprites[currentSprite].data.length; i++) {
-      if (sprites[currentSprite].data[i] == remove) instances.push(i);
-      else if (sprites[currentSprite].data[i] > remove) larger.push(i);
-    }
-    for (let i = 0; i < instances.length; i++) {
-      sprites[currentSprite].data[instances[i]] = 0;
-    }
-    for (let i = 0; i < larger.length; i++) {
-      sprites[currentSprite].data[larger[i]] -= 1;
+    for (let sprite = 0; sprite < sprites.length; sprite++) {
+      let instances = [];
+      let larger = [];
+      for (let i = 0; i < sprites[sprite].data.length; i++) {
+        if (sprites[sprite].data[i] == remove) instances.push(i);
+        else if (sprites[sprite].data[i] > remove) larger.push(i);
+      }
+      for (let i = 0; i < instances.length; i++) {
+        sprites[sprite].data[instances[i]] = 0;
+      }
+      for (let i = 0; i < larger.length; i++) {
+        sprites[sprite].data[larger[i]] -= 1;
+      }
     }
     if (currentColor == remove) {currentColor = 0}
     else if (currentColor > remove) {currentColor -= 1}
-
-    // while (sprites[currentSprite].data.findIndex((e) => contextColor == e) != -1) {
-    //   sprites[currentSprite].data[sprites[currentSprite].data.findIndex((e) => contextColor == e)] = 0;
-    // }
     
     updateColors();
     context.style.display = "none";

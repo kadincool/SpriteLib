@@ -1,0 +1,4 @@
+make color context menu work better
+add sprite resize, export
+add sprite selector
+make sprite color changes work on all sprites

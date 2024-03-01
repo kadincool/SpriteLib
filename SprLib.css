@@ -155,6 +155,7 @@ body {
   min-height: 100px;
   background-color: var(--it);
   border-radius: 0 0 0 15px;
+  padding: 10px;
 }
 #sprColorList {
   width: 100px;
@@ -177,6 +178,14 @@ body {
   /* width: 100px;
   min-height: 100px; */
   flex-grow: 1;
+}
+.sprItem {
+  outline: var(--hl) solid 3px;
+  border-radius: 15px;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .SprColor {
   margin: 15px;
