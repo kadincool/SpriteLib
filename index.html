@@ -66,23 +66,25 @@
           <div class="codeButton" tabindex=0>💾</div>
           <div class="codeButton" onclick="runProgram()" tabindex=0>▶️</div>
         </div>
-        <div id="srcCode" contenteditable="plaintext-only" spellcheck="false">//JS code execution isn't a security vulnerability if there's nothing to secure ;D
-console.log("Hello World");
-//resize canvas
-canvas.width = undefined;
-canvas.height = undefined;
-canvas.width = canvas.clientWidth;
-canvas.height = canvas.clientHeight;
-//set red square
-ctx.fillStyle = "red";
-ctx.fillRect(0, 0, 100, 100);
+        <div id="srcCode" contenteditable="plaintext-only" spellcheck="false">
+//JS code execution isn't a security vulnerability if there's nothing to secure ;D
+console.log("Hello World")
+let x = 0;
 
 function frame() {
-  console.log(Date.now());
-  requestAnimationFrame(frame())
+  clear();
+  //set red square
+  ctx.fillStyle = "red";
+  ctx.fillRect(0, 0, 100, 100);
+  //player
+  drawSprite(0, x, 0, 8);
+  //make looping effect
+  drawSprite(0, x-canvas.width, 0, 8);
+  x+=4;
+  x%=canvas.width;
+  //console.log(Date.now());
 }
-frame()
-</div>
+        </div>
       </div>
       <div class="content" id="Sound"></div>
       <div class="content" id="Play">

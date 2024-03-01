@@ -35,6 +35,7 @@ export function setColor(col) {
 }
 
 export function addColor(col) {
+  if (col == null || col == "") return;
   colors.push(col);
   // let made = document.createElement("div");
   // made.style = "background-color: "+col+";";
