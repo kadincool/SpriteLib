@@ -34,14 +34,22 @@ export function updateSprites() {
 }
 
 export function reloadSprites() {
-  let sprites = document.getElementById("sprList");
-  sprites.innerHTML = "";
-
+  let sprList = document.getElementById("sprList");
+  sprList.innerHTML = "";
+  
   for (let i = 0; i < sprites.length; i++) {
     let sprite = document.createElement("div");
     sprite.className = "sprItem";
     let spritePreview = document.createElement("canvas");
-    spritePreview.className = "spritePreview";
+    spritePreview.className = "sprPreview";
+    spritePreview.width = spritePreview.clientWidth;
+    spritePreview.height = spritePreview.clientHeight;
+    let ctx = spritePreview.getContext("2d");
+    ctx.fillStyle = "red";
+    ctx.globalAlpha = 1;
+    ctx.fillRect(0, 0, spritePreview.width, spritePreview.height);
+    sprite.appendChild(spritePreview);
+    sprList.appendChild(sprite);
   }
 }
 

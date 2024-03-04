@@ -187,6 +187,10 @@ body {
   justify-content: center;
   align-items: center;
 }
+.sprPreview {
+  width: 80%;
+  aspect-ratio: 1;
+}
 .SprColor {
   margin: 15px;
   aspect-ratio: 2/1;
