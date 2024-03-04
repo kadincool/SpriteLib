@@ -2,6 +2,8 @@ var running = false;
 var keys = {};
 
 function runProgram() {
+  //need to store because of weird bug
+  let srcCode = document.getElementById("srcCode").innerText;
   changeTab("Play");
   const canvas = document.getElementById("runCanvas");
   const ctx = canvas.getContext("2d");
@@ -33,7 +35,7 @@ function runProgram() {
 
   running = true;
   try {
-    eval(document.getElementById("srcCode").innerText);
+    eval(srcCode)
     frameLoop()
   } catch (error) {
     alert(error); console.log(error)

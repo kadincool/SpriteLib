@@ -81,9 +81,9 @@ body {
   background-color: var(--hl);
   /* background-color: violet; */
 }
-/* #logo:hover {
+#logo:hover, #logo:focus {
   background-color: var(--hl);
-} */
+}
 #tabs {
   margin-top: 10px;
   background-color: var(--ta);

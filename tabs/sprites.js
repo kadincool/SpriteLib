@@ -29,6 +29,27 @@ export function makeImage(w,h) {
   sprites.push({data: [], width: w, height: h});
 }
 
+export function updateSprites() {
+
+}
+
+export function reloadSprites() {
+  let sprites = document.getElementById("sprList");
+  sprites.innerHTML = "";
+
+  for (let i = 0; i < sprites.length; i++) {
+    let sprite = document.createElement("div");
+    sprite.className = "sprItem";
+    let spritePreview = document.createElement("canvas");
+    spritePreview.className = "spritePreview";
+  }
+}
+
+export function loadSprites(file) {
+  if (file.sprites) sprites = file.sprites;
+  if (file.colors) colors = file.colors;
+}
+
 export function setColor(col) {
   currentColor = col;
   updateColors();

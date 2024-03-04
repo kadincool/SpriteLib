@@ -68,7 +68,6 @@ window.optionMenu = optionMenu;
 function save() {
   //make a blob with the data
   let data = new Blob([JSON.stringify({sprites: sprites.sprites, colors: sprites.colors, code: document.getElementById("srcCode").innerText})], {type: "application/json"});
-  console.log(URL.createObjectURL(data));
   //make download anchor
   let download = document.createElement("a");
   download.href = URL.createObjectURL(data);
@@ -80,5 +79,33 @@ function save() {
 }
 
 window.save = save;
+
+function load() {
+  let filePicker = document.createElement("input");
+  filePicker.type = "file";
+  filePicker.accept = ".slb";
+  filePicker.addEventListener("change", function() {
+    let firstFile = filePicker.files[0];
+
+    if (firstFile) {
+      let reader = new FileReader();
+
+      reader.readAsText(firstFile);
+
+      reader.onload = function(e) {
+        let loadedFile = JSON.parse(e.target.result);
+
+        console.log(loadedFile);
+
+        sprites.loadSprites(loadedFile);
+        if (loadedFile.code) document.getElementById("srcCode").innerText = loadedFile.code;
+      };
+    }
+  });
+
+  filePicker.click();
+}
+
+window.load = load;
 
 window.changeTab = changeTab;
