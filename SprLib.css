@@ -75,6 +75,7 @@ body {
   outline-color: transparent;
   /* outline-width: 0px; */
   background-color: var(--ta);
+  cursor: unset;
 }
 .option:hover, .option:focus {
   outline-color: transparent;

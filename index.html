@@ -17,11 +17,11 @@
         <div id="logo" class="option"><> SpriteLib</div>
         <div class="option" data-option="file" onclick="optionMenu(event)" tabindex=0>File</div>
         <div class="dropdown" id="file">
-          <div class="dropdownItem">New</div>
+          <!-- <div class="dropdownItem">New</div> -->
           <div class="dropdownItem" onclick="save()">Save</div>
           <div class="dropdownItem" onclick="load()">Load</div>
         </div>
-        <div class="option" data-option="edit" onclick="optionMenu(event)" tabindex=0>Edit</div>
+        <!-- <div class="option" data-option="edit" onclick="optionMenu(event)" tabindex=0>Edit</div>
         <div class="dropdown" id="edit">
           <div class="dropdownItem">edits</div>
           <div class="dropdownItem">editing</div>
@@ -30,7 +30,7 @@
         <div class="dropdown" id="view">
           <div class="dropdownItem">views</div>
           <div class="dropdownItem">viewing</div>
-        </div>
+        </div> -->
       </div>
       <div id="tabs">
         <div class="tab" data-tab="Sprites" onclick="changeTab(this.dataset.tab)" tabindex=0>😀 Sprites</div>
@@ -42,35 +42,33 @@
       </div>
       <div class="content" id="Sprites">
         <!-- Sprites -->
-        <div id="sprList">
+        <!-- <div id="sprList">
           <div class="sprItem">+</div>
-        </div>
+        </div> -->
         <div id="sprEditor">
           <canvas id="spriteCanvas"></canvas>
-          <div id="SprToolbar">
+          <!-- <div id="SprToolbar">
             <div class="sprTool" onclick="sprites.setFill(event)" tabindex=0>💧</div>
             <div class="sprTool" onclick="console.log('bar')" tabindex=0>📏</div>
-          </div>
+          </div> -->
         </div>
         <div id="sprColorList"></div>
         <div id="colorContext" class="contextMenu">
-          <div class="contextButton" tabindex=0>📄</div>
+          <!-- <div class="contextButton" tabindex=0>📄</div> -->
           <div class="contextButton" onclick="sprites.removeColor(sprites.contextColor)" tabindex=0>🗑️</div>
-          <div class="contextButton" tabindex=0>🎨</div>
-          <div class="contextButton" tabindex=0>🔼</div>
-          <div class="contextButton" tabindex=0>🔽</div>
+          <!-- <div class="contextButton" tabindex=0>🎨</div> -->
+          <!-- <div class="contextButton" tabindex=0>🔼</div> -->
+          <!-- <div class="contextButton" tabindex=0>🔽</div> -->
         </div>
       </div>
       <div class="content" id="MetaSprites"></div>
       <div class="content" id="Scripts">
         <!-- <textarea>console.log("hello world");</textarea> -->
         <div id="codeToolbar">
-          <div class="codeButton" tabindex=0>💾</div>
+          <!-- <div class="codeButton" tabindex=0>💾</div> -->
           <div class="codeButton" onclick="runProgram()" tabindex=0>▶️</div>
         </div>
-        <div id="srcCode" contenteditable="plaintext-only" spellcheck="false">
-//JS code execution isn't a security vulnerability if there's nothing to secure ;D
-console.log("Hello World")
+        <div id="srcCode" contenteditable="plaintext-only" spellcheck="false">console.log("Hello World")
 let x = 0;
 
 function frame() {
@@ -84,9 +82,7 @@ function frame() {
   drawSprite(0, x-canvas.width, 0, 8);
   x+=4;
   x%=canvas.width;
-  //console.log(Date.now());
-}
-        </div>
+}</div>
       </div>
       <div class="content" id="Sound"></div>
       <div class="content" id="Play">
